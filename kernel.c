@@ -23,7 +23,7 @@ void kmain() {
         video_memory[i * 2 + 1] = white_on_black;
     }
 
-    display_str(char *str "Hello, World!");
+    display_str("Hello, World!");
     
     while (1) {
 

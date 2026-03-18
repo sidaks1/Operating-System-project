@@ -36,7 +36,17 @@ start:
     mov si, message
     call print
 
-    jmp $
+    ; jmp $
+
+    cli
+    mov ax, 0x1000
+    mov ds, ax
+    mov es, ax
+    mov ss, ax
+    mov sp, 0x7C00
+    sti
+
+    jmp ox1000:0
 
 ;print word
 print:
