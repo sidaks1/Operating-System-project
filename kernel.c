@@ -16,6 +16,15 @@ void display_str(char *str){
     }
 }
 
+void keyboardtest() {
+    __asm__() volatile (
+        "mov ah, 0\n"
+        "int 0x16\n"
+        "cmp al, 0\n"
+    );
+}
+
+
 void kmain() {
     char* video_memory = (char*) VIDEO_MEMORY;
     for (int i = 0; i < VGA_WIDTH * VGA_HEIGHT; i++) {
