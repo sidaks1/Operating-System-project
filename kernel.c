@@ -14,18 +14,16 @@ void display_str(char *str){
 
 
 void kmain() {
-    char* video_memory = (char*) VIDEO_MEMORY;
-    for (int i = 0; i < VGA_WIDTH * VGA_HEIGHT; i++) {
-        video_memory[i * 2] = '\0';
-        video_memory[i * 2 + 1] = white_on_black;
-    }
 
-    display_str("Hello, World!");
+    display_str("Custom Shell\n");
     
     while (1) {
         unsigned char key = keyboardtest();
         if (key) {
-            display_character(key);
+            unsigned int row = display_character(key);
+        }
+        if (rownum >= VGA_HEIGHT) {
+            scroll_screen();
         }
 
     }
